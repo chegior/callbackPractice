@@ -47,7 +47,7 @@ first(names, function(firstName){
   //Code Here
 
   var last = function (arr, cb){
-    cb(arr[arr.lenght - 1]);
+    cb(arr[arr.length - 1]);
   }
 
 last(names, function(lastName){
@@ -59,7 +59,10 @@ last(names, function(lastName){
 // 3. Write a function called multiply that multiplies two numbers using a callback function.
 
   //Code Here
+var multiply = function (num1, num2, cb){
 
+  cb(num1 * num2);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -71,6 +74,15 @@ multiply(4, 3, function(answer){
 // If it does, return true using the callback, if not return false.
 
   //Code Here
+var contains = function (arr, str, cb){
+  var flag = false;
+  for(var i = 0; i < arr.length; i++){
+    if( arr[i] === str){
+      flag= true;
+    }
+  }
+  cb(flag);
+}
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -86,6 +98,15 @@ contains(names, 'Colt', function(result){
 // the callback function with the array of unique names.
 
     //Code Here
+    var uniq =function(arr,cb){
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++ ){
+        if(newArr.indexOf(arr[i])=== -1){
+          newArr.push(arr[i]);
+        }
+      }
+      cb(newArr);
+    }
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
