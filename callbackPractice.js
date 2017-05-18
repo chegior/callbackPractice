@@ -117,6 +117,11 @@ uniq(names, function(uniqArr){
 // function to return the indices and item.
 
     //Code Here
+    var each = function (arr, cb){
+      for ( var i = 0 ; i < arr.length; i++){
+        cb( arr[i], i);
+      }
+    }
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -128,6 +133,14 @@ each(names, function(item, indice){
 // and returns that user.
 
  //Code Here
+
+ var getUserById = function(arr, id, cb){
+   for(var index in users){
+     if (users[index]["id"] === id){
+       cb(users[index]);
+     }
+   }
+ }
 
 var users = [
   {
